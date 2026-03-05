@@ -1,154 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>danjo — projects</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0d0d0d;
-      --surface: #161616;
-      --border: #222;
-      --text: #e8e8e8;
-      --muted: #666;
-      --accent: #7c6aff;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      padding: 80px 40px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    header p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    main {
-      flex: 1;
-      padding: 0 40px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .card-name {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .card-link {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-top: 4px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: var(--muted);
-      font-size: 0.8rem;
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 520px) {
-      header { padding: 50px 24px 40px; }
-      main { padding: 0 24px 60px; }
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>danjo &mdash; projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #f0ebe1;
+    --surface: #faf7f2;
+    --ink:     #0d3535;
+    --ink-2:   #4a6b5e;
+    --ink-3:   #9ab0a4;
+    --border:  #ddd5c4;
+    --teal:    #1a5c52;
+    --teal-mid:#2e8070;
+    --teal-lt: #e4efec;
+    --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Jost, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    background: rgba(240,235,225,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo-text {
+    font-family: Cormorant Garamond, serif;
+    font-weight: 600;
+    font-size: 1.45rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .header-tag {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  main { flex: 1; padding-top: 72px; animation: fadeUp 0.45s var(--ease) both; }
+  .hero { max-width: 1200px; margin: 0 auto; padding: 88px 48px 72px; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-mid); flex-shrink: 0; }
+  h1 {
+    font-family: Cormorant Garamond, serif;
+    font-weight: 500;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; font-weight: 400; color: var(--teal-mid); }
+  .hero-sub { font-size: 1rem; font-weight: 300; color: var(--ink-2); line-height: 1.8; max-width: 440px; }
+  .section { max-width: 1200px; margin: 0 auto; padding: 0 48px 100px; }
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+  }
+  .app-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s var(--ease);
+  }
+  .app-card::after {
+    content: "\2197";
+    position: absolute;
+    top: 26px; right: 26px;
+    font-size: 1rem;
+    color: var(--ink-3);
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: translate(-4px, 4px);
+  }
+  .app-card:hover { border-color: var(--teal); box-shadow: 0 8px 40px rgba(26,92,82,0.08); transform: translateY(-4px); }
+  .app-card:hover::after { opacity: 1; transform: translate(0,0); }
+  .app-card.featured { background: var(--teal); border-color: var(--teal); }
+  .app-card.featured::after { color: rgba(250,247,242,0.3); }
+  .app-icon-wrap {
+    width: 46px; height: 46px;
+    background: var(--teal-lt);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 22px;
+  }
+  .app-card.featured .app-icon-wrap { background: rgba(250,247,242,0.12); }
+  .app-name { font-family: Cormorant Garamond, serif; font-weight: 600; font-size: 1.25rem; letter-spacing: 0.01em; margin-bottom: 8px; color: var(--ink); }
+  .app-card.featured .app-name { color: var(--surface); }
+  .app-desc { font-size: 0.87rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; flex: 1; }
+  .app-card.featured .app-desc { color: rgba(250,247,242,0.6); }
+  .app-tag {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    background: var(--teal-lt);
+    padding: 4px 12px;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .app-card.featured .app-tag { background: rgba(250,247,242,0.12); color: rgba(250,247,242,0.5); }
+  footer { text-align: center; padding: 24px; color: var(--ink-3); font-size: 0.78rem; font-weight: 300; letter-spacing: 0.04em; border-top: 1px solid var(--border); }
+  @media (max-width: 700px) {
+    header { padding: 0 24px; }
+    .hero { padding: 60px 24px 48px; }
+    .section { padding: 0 24px 60px; }
+    .app-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-
   <header>
-    <h1>danjo</h1>
-    <p>A collection of things I've built.</p>
+    <div class="logo-text">danjo</div>
+    <div class="header-tag">Projects</div>
   </header>
-
   <main>
-    <div class="grid">
+    <div class="hero">
+      <div class="badge"><span class="badge-dot"></span> Live projects</div>
+      <h1>Things I&#8217;ve<br><em>built.</em></h1>
+      <p class="hero-sub">A small collection of apps and tools &mdash; each one solving something I actually care about.</p>
+    </div>
+    <div class="section">
+      <div class="section-label">
+        <span>All projects</span>
+        <span>04 total</span>
+      </div>
+      <div class="app-grid">
 
-      <a class="card" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
-        <div class="card-name">FireRed Companion</div>
-        <div class="card-desc">A companion tool for Pokemon FireRed — tracks progress, team, and game info.</div>
-        <div class="card-link">fireredcompanion.vercel.app</div>
-      </a>
+        <a class="app-card featured" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
+          <div class="app-icon-wrap">&#x1F534;</div>
+          <div class="app-name">FireRed Companion</div>
+          <div class="app-desc">A companion tool for Pokemon FireRed &mdash; tracks your progress, team, and game info as you play.</div>
+          <span class="app-tag">Gaming</span>
+        </a>
 
-      <a class="card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
-        <div class="card-name">Broic</div>
-        <div class="card-desc">A social app for sharing and discovering things with friends.</div>
-        <div class="card-link">broic.vercel.app</div>
-      </a>
+        <a class="app-card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
+          <div class="app-icon-wrap">&#x1F91D;</div>
+          <div class="app-name">Broic</div>
+          <div class="app-desc">A social app for sharing and discovering things with friends.</div>
+          <span class="app-tag">Social</span>
+        </a>
 
-      <a class="card" href="https://theshelf.vercel.app/" target="_blank" rel="noopener">
-        <div class="card-name">The Shelf</div>
-        <div class="card-desc">A personal library app to track books, movies, and media you want to revisit.</div>
-        <div class="card-link">theshelf.vercel.app</div>
-      </a>
+        <a class="app-card" href="https://theshelf.vercel.app/" target="_blank" rel="noopener">
+          <div class="app-icon-wrap">&#x1F4DA;</div>
+          <div class="app-name">The Shelf</div>
+          <div class="app-desc">A personal library app to track books, movies, and media you want to revisit.</div>
+          <span class="app-tag">Productivity</span>
+        </a>
 
-      <a class="card" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
-        <div class="card-name">NBA Box Score</div>
-        <div class="card-desc">Live and historical NBA box scores — clean, fast, and easy to browse.</div>
-        <div class="card-link">nba-boxscore.vercel.app</div>
-      </a>
+        <a class="app-card" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
+          <div class="app-icon-wrap">&#x1F3C0;</div>
+          <div class="app-name">NBA Box Score</div>
+          <div class="app-desc">Live and historical NBA box scores &mdash; clean, fast, and easy to browse.</div>
+          <span class="app-tag">Sports</span>
+        </a>
 
+      </div>
     </div>
   </main>
-
-  <footer>
-    built by danjo
-  </footer>
-
+  <footer>built by danjo</footer>
 </body>
 </html>
