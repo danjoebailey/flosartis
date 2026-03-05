@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>danjo — projects</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --border: #222;
+      --text: #e8e8e8;
+      --muted: #666;
+      --accent: #7c6aff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 80px 40px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 0 40px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 520px) {
+      header { padding: 50px 24px 40px; }
+      main { padding: 0 24px 60px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>danjo</h1>
+    <p>A collection of things I've built.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <a class="card" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
+        <div class="card-name">FireRed Companion</div>
+        <div class="card-desc">A companion tool for Pokemon FireRed — tracks progress, team, and game info.</div>
+        <div class="card-link">fireredcompanion.vercel.app</div>
+      </a>
+
+      <a class="card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
+        <div class="card-name">Broic</div>
+        <div class="card-desc">A social app for sharing and discovering things with friends.</div>
+        <div class="card-link">broic.vercel.app</div>
+      </a>
+
+      <a class="card" href="https://theshelf.vercel.app/" target="_blank" rel="noopener">
+        <div class="card-name">The Shelf</div>
+        <div class="card-desc">A personal library app to track books, movies, and media you want to revisit.</div>
+        <div class="card-link">theshelf.vercel.app</div>
+      </a>
+
+      <a class="card" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
+        <div class="card-name">NBA Box Score</div>
+        <div class="card-desc">Live and historical NBA box scores — clean, fast, and easy to browse.</div>
+        <div class="card-link">nba-boxscore.vercel.app</div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    built by danjo
+  </footer>
+
+</body>
+</html>
