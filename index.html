@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -49,13 +49,7 @@
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
-  .logo-text {
-    font-family: Cormorant Garamond, serif;
-    font-weight: 600;
-    font-size: 1.45rem;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-  }
+  .header-logo { height: 48px; width: auto; object-fit: contain; }
   .header-tag {
     font-size: 0.75rem;
     font-weight: 300;
@@ -171,8 +165,8 @@
 </head>
 <body>
   <header>
-    <div class="logo-text">danjo</div>
     <div class="header-tag">Projects</div>
+    <img src="logo.png" alt="Flos Artis" class="header-logo">
   </header>
   <main>
     <div class="hero">
@@ -221,3 +215,5 @@
   <footer>built by danjo</footer>
 </body>
 </html>
+
+
