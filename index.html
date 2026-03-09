@@ -100,7 +100,9 @@
     justify-content: space-between;
   }
   .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .app-item { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .app-item { display: flex; flex-direction: column; gap: 16px; }
+  .app-item .app-name, .app-item .app-desc-below { text-align: center; }
+  .app-item .app-tag { align-self: center; }
   .app-desc-below { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; }
   .app-card {
     background: var(--surface);
