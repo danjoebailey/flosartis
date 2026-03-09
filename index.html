@@ -100,6 +100,8 @@
     justify-content: space-between;
   }
   .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .app-item { display: flex; flex-direction: column; gap: 16px; }
+  .app-desc-below { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; text-align: center; padding: 0 8px; }
   .app-card {
     background: var(--surface);
     border: 1.5px solid var(--border);
@@ -154,7 +156,7 @@
   .app-card.featured .app-icon-wrap { background: rgba(250,247,242,0.12); }
   .app-name { font-family: Cormorant Garamond, serif; font-weight: 600; font-size: 1.15rem; letter-spacing: 0.01em; margin-bottom: 10px; color: var(--ink); }
   .app-card.featured .app-name { color: var(--surface); }
-  .app-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; flex: 1; }
+  .app-desc { font-size: 0.82rem; font-weight: 300; color: var(--ink-2); line-height: 1.75; }
   .app-card.featured .app-desc { color: rgba(250,247,242,0.6); }
   .app-tag {
     display: inline-block;
@@ -228,37 +230,45 @@
       </div>
       <div class="app-grid">
 
-        <a class="app-card has-bg" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
-          <img class="card-bg" src="firered.jpg" alt="">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <div class="app-icon-wrap">&#x1F534;</div>
-            <div class="app-name">FireRed Companion</div>
-            <div class="app-desc">A companion tool for Pokemon FireRed &mdash; tracks your progress, team, and game info as you play.</div>
-            <span class="app-tag">Gaming</span>
-          </div>
-        </a>
+        <div class="app-item">
+          <a class="app-card has-bg" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
+            <img class="card-bg" src="firered.jpg" alt="">
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <div class="app-icon-wrap">&#x1F534;</div>
+              <div class="app-name">FireRed Companion</div>
+              <span class="app-tag">Gaming</span>
+            </div>
+          </a>
+          <p class="app-desc-below">A companion tool for Pokemon FireRed &mdash; tracks your progress, team, and game info as you play.</p>
+        </div>
 
-        <a class="app-card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
-          <div class="app-icon-wrap">&#x1F91D;</div>
-          <div class="app-name">Broic</div>
-          <div class="app-desc">A social app for sharing and discovering things with friends.</div>
-          <span class="app-tag">Social</span>
-        </a>
+        <div class="app-item">
+          <a class="app-card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
+            <div class="app-icon-wrap">&#x1F91D;</div>
+            <div class="app-name">Broic</div>
+            <span class="app-tag">Social</span>
+          </a>
+          <p class="app-desc-below">A social app for sharing and discovering things with friends.</p>
+        </div>
 
-        <a class="app-card" href="https://theshelf.vercel.app/" target="_blank" rel="noopener">
-          <div class="app-icon-wrap">&#x1F4DA;</div>
-          <div class="app-name">The Shelf</div>
-          <div class="app-desc">A personal library app to track books, movies, and media you want to revisit.</div>
-          <span class="app-tag">Productivity</span>
-        </a>
+        <div class="app-item">
+          <a class="app-card" href="https://theshelf.vercel.app/" target="_blank" rel="noopener">
+            <div class="app-icon-wrap">&#x1F4DA;</div>
+            <div class="app-name">The Shelf</div>
+            <span class="app-tag">Productivity</span>
+          </a>
+          <p class="app-desc-below">A personal library app to track books, movies, and media you want to revisit.</p>
+        </div>
 
-        <a class="app-card" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
-          <div class="app-icon-wrap">&#x1F3C0;</div>
-          <div class="app-name">NBA Box Score</div>
-          <div class="app-desc">Live and historical NBA box scores &mdash; clean, fast, and easy to browse.</div>
-          <span class="app-tag">Sports</span>
-        </a>
+        <div class="app-item">
+          <a class="app-card" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
+            <div class="app-icon-wrap">&#x1F3C0;</div>
+            <div class="app-name">NBA Box Score</div>
+            <span class="app-tag">Sports</span>
+          </a>
+          <p class="app-desc-below">Live and historical NBA box scores &mdash; clean, fast, and easy to browse.</p>
+        </div>
 
       </div>
     </div>
