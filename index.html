@@ -171,6 +171,36 @@
     flex-shrink: 0;
   }
   .app-card.featured .app-tag { background: rgba(250,247,242,0.12); color: rgba(250,247,242,0.5); }
+  /* bg-image card variant */
+  .app-card.has-bg { border-color: transparent; }
+  .app-card.has-bg::before { background: rgba(255,255,255,0.25); z-index: 2; position: relative; }
+  .app-card.has-bg::after { color: rgba(255,255,255,0.8); }
+  .card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+  }
+  .card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+  }
+  .app-card.has-bg .app-icon-wrap { background: rgba(255,255,255,0.15); }
+  .app-card.has-bg .app-name { color: #fff; }
+  .app-card.has-bg .app-desc { color: rgba(255,255,255,0.75); }
+  .app-card.has-bg .app-tag { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
   footer { text-align: center; padding: 24px; color: var(--ink-3); font-size: 0.78rem; font-weight: 300; letter-spacing: 0.04em; border-top: 1px solid var(--border); }
   @media (max-width: 700px) {
     header { padding: 0 24px; }
@@ -198,11 +228,15 @@
       </div>
       <div class="app-grid">
 
-        <a class="app-card featured" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
-          <div class="app-icon-wrap">&#x1F534;</div>
-          <div class="app-name">FireRed Companion</div>
-          <div class="app-desc">A companion tool for Pokemon FireRed &mdash; tracks your progress, team, and game info as you play.</div>
-          <span class="app-tag">Gaming</span>
+        <a class="app-card has-bg" href="https://fireredcompanion.vercel.app/" target="_blank" rel="noopener">
+          <img class="card-bg" src="firered.jpg" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="app-icon-wrap">&#x1F534;</div>
+            <div class="app-name">FireRed Companion</div>
+            <div class="app-desc">A companion tool for Pokemon FireRed &mdash; tracks your progress, team, and game info as you play.</div>
+            <span class="app-tag">Gaming</span>
+          </div>
         </a>
 
         <a class="app-card" href="https://broic.vercel.app/" target="_blank" rel="noopener">
