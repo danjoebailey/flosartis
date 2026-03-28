@@ -227,7 +227,7 @@
       <div class="app-grid">
 
         <div class="app-item">
-          <a class="app-card has-bg" href="https://theshelf.flosartis.com/" target="_blank" rel="noopener">
+          <a class="app-card has-bg" href="https://theshelf.flosartis.com/" target="_blank" rel="noopener" data-project="The Shelf">
             <img class="card-bg" src="theshelf.jpg" alt="">
             <div class="card-overlay"></div>
           </a>
@@ -237,7 +237,7 @@
         </div>
 
         <div class="app-item">
-          <a class="app-card has-bg" href="https://fireredcompanion.flosartis.com" target="_blank" rel="noopener">
+          <a class="app-card has-bg" href="https://fireredcompanion.flosartis.com" target="_blank" rel="noopener" data-project="FireRed Companion">
             <img class="card-bg" src="firered.jpg" alt="">
             <div class="card-overlay"></div>
           </a>
@@ -247,7 +247,7 @@
         </div>
 
         <div class="app-item">
-          <a class="app-card has-bg" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener">
+          <a class="app-card has-bg" href="https://nba-boxscore.vercel.app/" target="_blank" rel="noopener" data-project="NBA Box Score">
             <img class="card-bg" src="nbaboxscore.jpg" alt="">
             <div class="card-overlay"></div>
           </a>
@@ -257,7 +257,7 @@
         </div>
 
         <div class="app-item">
-          <a class="app-card has-bg" href="https://broic.vercel.app/" target="_blank" rel="noopener">
+          <a class="app-card has-bg" href="https://broic.vercel.app/" target="_blank" rel="noopener" data-project="Broic">
             <img class="card-bg" src="broic.jpg" alt="">
             <div class="card-overlay"></div>
           </a>
@@ -270,6 +270,13 @@
     </div>
   </main>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+  document.querySelectorAll('.app-card[data-project]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      window.va && window.va('event', 'project_click', { project: this.dataset.project });
+    });
+  });
+</script>
 </body>
 </html>
 
